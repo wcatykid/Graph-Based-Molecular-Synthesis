@@ -1,0 +1,15 @@
+z_outfile.coutfile002001.pdb
+ OpenBabel08201417163D
+
+  2  1  0  0  0  0  0  0  0  0999 V2000
+    4.1110   -3.6610   -1.4370 N   0  0  0  0  0  0  0  0  0  0  0  0
+    3.4620   -3.3670   -0.1530 C   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+M  END
+
+
+> <MAX-NUMBER-Of-CONTACTS ATOMTYPES>
+2  N.3
+3  C.3
+
+$$$$

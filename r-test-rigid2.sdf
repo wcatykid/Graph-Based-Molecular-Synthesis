@@ -1,0 +1,60 @@
+Tanimoto-above95-compared-to-r-CHEMBL1088912-2.sdf
+ OpenBabel08201417163D
+
+  9 10  0  0  0  0  0  0  0  0999 V2000
+    2.8930   -1.9720   -0.1850 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.5600   -0.8880    0.0890 N   0  0  0  0  0  0  0  0  0  0  0  0
+    2.7470    0.1920   -0.0360 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4840   -0.2890   -0.4180 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.4390    0.6020   -0.6220 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.6490    1.9540   -0.4480 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.8980    2.4280   -0.0700 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.9380    1.5660    0.1350 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.6080   -1.6610   -0.5040 N   0  0  0  0  0  0  0  0  0  0  0  0
+  1  9  2  0  0  0  0
+  1  2  1  0  0  0  0
+  2  3  1  0  0  0  0
+  3  4  2  0  0  0  0
+  3  8  1  0  0  0  0
+  4  5  1  0  0  0  0
+  4  9  1  0  0  0  0
+  5  6  2  0  0  0  0
+  6  7  1  0  0  0  0
+  7  8  2  0  0  0  0
+M  END
+
+
+> <ATOMTYPES>
+C.ar
+N.ar
+C.ar
+C.ar
+C.ar
+C.ar
+C.ar
+C.ar
+N.ar
+
+> <BRANCH @atom-number eligible-atmtype-to-connect>
+1 C.3
+2 C.3
+
+> <fragments similar>
+r-CHEMBL1088912-2.sdf
+r-CHEMBL1088913-2.sdf
+r-CHEMBL1088916-2.sdf
+r-CHEMBL1089434-4.sdf
+r-CHEMBL1089844-2.sdf
+r-CHEMBL1089845-2.sdf
+r-CHEMBL1089846-2.sdf
+r-CHEMBL1091591-1.sdf
+r-CHEMBL1092301-2.sdf
+r-CHEMBL1092302-2.sdf
+r-CHEMBL1092324-3.sdf
+r-CHEMBL1092596-2.sdf
+r-CHEMBL1092628-2.sdf
+r-CHEMBL1092637-1.sdf
+r-CHEMBL1093008-3.sdf
+r-CHEMBL577268-1.sdf
+
+$$$$
