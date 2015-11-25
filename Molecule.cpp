@@ -1,18 +1,18 @@
 /*
- *  This file is part of synth.
+ *  This file is part of esynth.
  *
- *  synth is free software: you can redistribute it and/or modify
+ *  esynth is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
  *  (at your option) any later version.
  *
- *  synth is distributed in the hope that it will be useful,
+ *  esynth is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
  *
  *  You should have received a copy of the GNU General Public License
- *  along with synth.  If not, see <http://www.gnu.org/licenses/>.
+ *  along with esynth.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 #include <cstring>
@@ -536,10 +536,14 @@ std::vector<EdgeAggregator*>* Molecule::Compose(const Molecule& that) const
     std::vector<EdgeAggregator*>* newMolecules = new std::vector<EdgeAggregator*>();
 
     //
-    // Pre-emptively check the molecular weight to see if there is a benefit
-    // to composing these molecules.
+    // Pre-emptively check the Lipinski characteristics to see if there is a benefit
+    // to composing these molecules; only perform this check if the user specified
+    // Lipinski compliance.
     //
-    if (Molecule::willExceedAdditiveThresholds(*this, that)) return newMolecules;
+    if (Options::USE_LIPINSKI)
+    {
+        if (Molecule::willExceedAdditiveThresholds(*this, that)) return newMolecules;
+    }
 
     //
     // Antecedent ids

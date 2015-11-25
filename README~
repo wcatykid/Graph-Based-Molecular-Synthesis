@@ -1,0 +1,58 @@
+Compiling:
+
+The following libraries are required: modify the Makefile to update path accordingly.
+  * openbabel (we used 2.3.2) http://sourceforge.net/projects/openbabel/?source=typ_redirect
+  * gsl (1.16) http://www.linuxfromscratch.org/blfs/view/svn/general/gsl.html
+  * gslcblas 
+  * z
+
+NOTE: Openbabel.2.3.2 should be compiled from source code. (You might need to remove the generic instalation of OpenBabel to prevent path conflict) 
+
+Object Files:
+
+All object files are compiled and places in the ./obj directory. 'make clean' will empty this folder.
+
+NOTE:before executing the esynth file, export LD_LIBRARY_PATH
+example:
+ export LD_LIBRARY_PATH=${HOME}/apps/openbabel-2.3.2-install/lib/
+ export LD_LIBRARY_PATH[to /gsl/lib]
+
+Executable:
+
+'make' will create the esynth application.
+
+All output of SMI molecules are dumped into the output directory (synth_output_dir). Each file will contain 250000 SMI molecules and wil
+l be compressed using the zlib compression algorithm.
+
+
+Running (input):
+
+./esynth is the executable.
+
+Comamand-line arguments are specified with a prefix '-' and may include the following:
+  * -serial : specified serial execution
+  * -threaded : specifies a threaded execution; do not use.
+  * -odir <directory> specifies the name of the directory where output will be placed (./<directory>); default is ./esynth_output_dir
+  * -tc <value> defines the tanimoto coefficient as a value between 0 and 1; default is 0.95. 
+  * -smi-only ; species all molecules are to be handled as SMI objects.
+  * -nopen ; specifies OpenBabel will not be used except for the first input from the SDF files and the resulting output in SMI format.
+  * -prob-level ; specifies what level to begin pruning molecules for probability purposes.
+
+A typical run: ./esynth -nopen -serial -smi-only <linkers sdfs> <rigid sdfs>
+
+Sample: ./esynth -nopen -serial -smi-only -prob-level 2 l-test-linker1.sdf l-test-linker2.sdf  r-test-rigid1.sdf r-test-rigid2.sdf
+
+All data files (*.sdf) must exist in the same directory as the executable.
+
+Example run:
+go to test directory located in example-fragments in esynth [esynth/example-fragments/test]
+
+PATH_TO_esynth/esynth `cat list` -nopen 
+
+This is the simplest run, options can be added as explained above. The output smi molecules are in synth_output_dir
+
+
+
+
+
+

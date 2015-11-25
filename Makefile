@@ -15,19 +15,27 @@
 #  along with synth.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+CC=g++ 
+OPT= -O2 
 
-OB_INC=../openbabel-2.3.2/include/
-OB_LIB_DIR=.
-OB_LIB=openbabel
-#GSL_DIR=/root/gsl-1.16/
-GSL_LIB=gsl
-CBLAS_LIB=gslcblas
-ZLIB=z
+#Path to openbabel directory which contains the header (.h) files 
+OB_INC= ${HOME}/apps/openbabel-2.3.2-install/include/openbabel-2.0/ 
 
-IDIR =./
-CC=g++
-OPT= -O2 -g # -p 
-CFLAGS= $(OPT) -I$(IDIR) -I$(OB_INC) -L$(OB_LIB_DIR) -l$(ZLIB) -l$(GSL_LIB) -l$(CBLAS_LIB) -l$(OB_LIB) -lpthread
+#Path to openbabel directory which contains the (.so) files 
+OB_LIB= ${HOME}/apps/openbabel-2.3.2-install/lib/
+
+
+GSL_LIB=/usr/lib64/
+GSL_INC=/usr/include/
+EXE = esynth
+
+
+CFLAGS= $(OPT) -I$(GSL_INC) -L$(GSL_LIB) -I$(OB_INC) -L$(OB_LIB) -lz -lgsl -lgslcblas -lopenbabel -lpthread
+
+
+
+ODIR=./obj
+
 ODIR=./obj
 
 DEPS = EdgeAggregator.h \
@@ -100,7 +108,7 @@ OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 $(ODIR)/%.o: %.cpp $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-synth: $(OBJ)
+$(EXE): $(OBJ)
 	$(CC) $^ $(CFLAGS) -o $@
 
 
@@ -145,4 +153,4 @@ convertToSMI: $(TOSMI_OBJ)
 .PHONY: clean
 
 clean:
-	rm -f $(ODIR)/*.o *~ core synth.exe synth.exe.stackdump $(INCDIR)/*~
+	rm -f $(ODIR)/*.o *~ core $(EXE) synth.stackdump $(INCDIR)/*~

@@ -1,18 +1,18 @@
 /*
- *  This file is part of synth.
+ *  This file is part of esynth.
  *
- *  synth is free software: you can redistribute it and/or modify
+ *  esynth is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
  *  (at your option) any later version.
  *
- *  synth is distributed in the hope that it will be useful,
+ *  esynth is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
  *
  *  You should have received a copy of the GNU General Public License
- *  along with synth.  If not, see <http://www.gnu.org/licenses/>.
+ *  along with esynth.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 #include <string>
@@ -34,6 +34,7 @@ bool Options::THREADED = false;
 bool Options::SERIAL = true;
 bool Options::OPENBABEL = true;
 bool Options::SMI_ONLY = false;
+bool Options::USE_LIPINSKI = false;
 unsigned Options::OBGEN_THREAD_POOL_SIZE = 15;
 //unsigned Options::SMI_LEVEL_BOUND = 3;
 unsigned Options::PROBABILITY_PRUNE_LEVEL_START = 5;
@@ -243,6 +244,12 @@ bool Options::handleOption(int& index)
         return true;
     }
 
+    if (strncmp(argv[index], "-lip", 4) == 0)
+    {
+        if (strcmp(argv[index], "-lip") == 0)
+            USE_LIPINSKI = true;
+        return true;
+    }
 
 
 /*
